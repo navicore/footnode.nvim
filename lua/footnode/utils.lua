@@ -1,16 +1,23 @@
 local M = {}
 
 function M.get_visual_selection()
-  local mode = vim.fn.mode()
-  if mode ~= "v" and mode ~= "V" and mode ~= "" then
-    return nil
+  -- Save current registers
+  local save_reg = vim.fn.getreg('"')
+  local save_regtype = vim.fn.getregtype('"')
+
+  -- Yank visual selection to unnamed register
+  vim.cmd([[silent normal! y]])
+
+  -- Get the yanked text
+  local text = vim.fn.getreg('"')
+
+  -- Restore previous register
+  vim.fn.setreg('"', save_reg, save_regtype)
+
+  -- Clean up whitespace
+  if text then
+    text = text:gsub("^%s+", ""):gsub("%s+$", "")
   end
-
-  vim.cmd('noau normal! "vy"')
-  local text = vim.fn.getreg("v")
-  vim.fn.setreg("v", {})
-
-  text = text:gsub("^%s+", ""):gsub("%s+$", "")
 
   return text
 end

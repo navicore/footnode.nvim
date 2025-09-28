@@ -12,9 +12,6 @@ function M.lookup_selection()
     return
   end
 
-  vim.cmd("normal! gv")
-  vim.cmd("normal! ")
-
   local config = require("footnode").config
 
   vim.notify("Looking up: " .. selected_text, vim.log.levels.INFO)

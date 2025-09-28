@@ -27,6 +27,11 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
     "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim",
   },
+  ft = "markdown",  -- Load only for markdown files
+  cmd = { "FootnoteLookup", "Footnode" },  -- Load when commands are used
+  keys = {
+    { "<leader>fl", mode = "v", desc = "Lookup selection and create footnote" },
+  },
   config = function()
     require("footnode").setup({
       -- Optional configuration
