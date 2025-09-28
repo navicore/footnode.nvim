@@ -1,11 +1,11 @@
 local M = {}
 
 function M.setup(config)
-  vim.api.nvim_create_user_command("Footnode", function(opts)
+  vim.api.nvim_create_user_command("Footnote", function(opts)
     local subcommand = opts.args
 
     if subcommand == "lookup" then
-      require("footnode.lookup").lookup_selection()
+      require("footnote.lookup").lookup_selection()
     else
       vim.notify("Unknown subcommand: " .. subcommand, vim.log.levels.ERROR)
     end
@@ -14,7 +14,7 @@ function M.setup(config)
     complete = function()
       return { "lookup" }
     end,
-    desc = "Footnode commands",
+    desc = "Footnote commands",
   })
 
   vim.api.nvim_create_user_command("FootnoteLookup", function()

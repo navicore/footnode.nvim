@@ -1,5 +1,5 @@
 local M = {}
-local utils = require("footnode.utils")
+local utils = require("footnote.utils")
 
 local function format_footnote_content(entry)
   if entry.source == "Dictionary" then

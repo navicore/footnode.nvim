@@ -13,13 +13,13 @@ M.config = {
 function M.setup(opts)
   M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 
-  require("footnode.commands").setup(M.config)
+  require("footnote.commands").setup(M.config)
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
       vim.keymap.set("v", M.config.keymaps.lookup, function()
-        require("footnode.lookup").lookup_selection()
+        require("footnote.lookup").lookup_selection()
       end, { buffer = true, desc = "Lookup selection and create footnote" })
     end,
   })

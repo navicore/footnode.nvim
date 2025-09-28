@@ -1,4 +1,4 @@
-# footnode.nvim
+# footnote.nvim
 
 A Neovim plugin for looking up visual selections in Wikipedia and automatically
 creating markdown footnotes with the results.
@@ -21,7 +21,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  "navicore/footnode.nvim",
+  "navicore/footnote.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -31,7 +31,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
     { "<leader>fl", mode = "v", desc = "Lookup selection and create footnote" },
   },
   config = function()
-    require("footnode").setup({
+    require("footnote").setup({
       -- Optional configuration
       wikipedia = {
         api_url = "https://en.wikipedia.org/api/rest_v1/page/summary/",
@@ -57,7 +57,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ### Commands
 
 - `:FootnoteLookup` - Look up visually selected text
-- `:Footnode lookup` - Alternative command for lookup
+- `:Footnote lookup` - Alternative command for lookup
 
 ### Example
 
@@ -73,7 +73,7 @@ The telescope[^1] is an amazing invention.
 ## Configuration
 
 ```lua
-require("footnode").setup({
+require("footnote").setup({
   wikipedia = {
     api_url = "https://en.wikipedia.org/api/rest_v1/page/summary/",
   },

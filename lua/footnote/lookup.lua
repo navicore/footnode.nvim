@@ -1,8 +1,8 @@
 local M = {}
-local utils = require("footnode.utils")
-local api = require("footnode.api")
-local window = require("footnode.window")
-local footnote = require("footnode.footnote")
+local utils = require("footnote.utils")
+local api = require("footnote.api")
+local window = require("footnote.window")
+local footnote = require("footnote.footnote")
 
 function M.lookup_selection()
   local selected_text = utils.get_visual_selection()
@@ -12,7 +12,7 @@ function M.lookup_selection()
     return
   end
 
-  local config = require("footnode").config
+  local config = require("footnote").config
 
   vim.notify("Looking up: " .. selected_text, vim.log.levels.INFO)
 

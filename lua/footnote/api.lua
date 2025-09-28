@@ -1,5 +1,5 @@
 local M = {}
-local utils = require("footnode.utils")
+local utils = require("footnote.utils")
 
 local function fetch_url(url, callback)
   local curl = require("plenary.curl")
