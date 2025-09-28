@@ -1,7 +1,7 @@
 local M = {}
 local utils = require("footnode.utils")
 local api = require("footnode.api")
-local telescope = require("footnode.telescope")
+local window = require("footnode.window")
 local footnote = require("footnode.footnote")
 
 function M.lookup_selection()
@@ -16,13 +16,13 @@ function M.lookup_selection()
 
   vim.notify("Looking up: " .. selected_text, vim.log.levels.INFO)
 
-  api.fetch_all(selected_text, config, function(results)
-    if not results or #results == 0 then
-      vim.notify("No results found for: " .. selected_text, vim.log.levels.WARN)
+  api.fetch_wikipedia(selected_text, config, function(results, err)
+    if err or not results or #results == 0 then
+      vim.notify("No Wikipedia results found for: " .. selected_text, vim.log.levels.WARN)
       return
     end
 
-    telescope.show_results(results, function(entry)
+    window.show_wikipedia_result(results[1], function(entry)
       footnote.insert_footnote(entry, selected_text)
     end)
   end)

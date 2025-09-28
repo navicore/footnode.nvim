@@ -64,12 +64,7 @@ function M.fetch_dictionary(word, config, callback)
 end
 
 function M.fetch_wikipedia(term, config, callback)
-  if not config.sources.wikipedia.enabled then
-    callback(nil, "Wikipedia source is disabled")
-    return
-  end
-
-  local url = config.sources.wikipedia.api_url .. utils.escape_for_url(term)
+  local url = config.wikipedia.api_url .. utils.escape_for_url(term)
 
   fetch_url(url, function(body, err)
     if err then

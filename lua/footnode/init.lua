@@ -1,15 +1,8 @@
 local M = {}
 
 M.config = {
-  sources = {
-    dictionary = {
-      enabled = true,
-      api_url = "https://api.dictionaryapi.dev/api/v2/entries/en/",
-    },
-    wikipedia = {
-      enabled = true,
-      api_url = "https://en.wikipedia.org/api/rest_v1/page/summary/",
-    },
+  wikipedia = {
+    api_url = "https://en.wikipedia.org/api/rest_v1/page/summary/",
   },
   keymaps = {
     lookup = "<leader>fl",
